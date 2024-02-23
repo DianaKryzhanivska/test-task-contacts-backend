@@ -41,10 +41,26 @@ const addContact = async (req, res) => {
   res.status(201).json(result);
 };
 
+const getSearchContacts = async (req, res) => {
+  const { term } = req.query;
+  const regex = new RegExp(term, "i");
+  const result = await Contact.find(
+    {
+      $or: [{ name: { $regex: regex } }, { email: { $regex: regex } }],
+    },
+    "-createdAt -updatedAt"
+  );
+  if (result.length === 0) {
+    throw httpError(404, "Not found");
+  }
+  res.status(200).json(result);
+};
+
 module.exports = {
   getMainPage: ctrlWrapper(getMainPage),
   getContactById: ctrlWrapper(getContactById),
   deleteContactById: ctrlWrapper(deleteContactById),
   updateContactById: ctrlWrapper(updateContactById),
   addContact: ctrlWrapper(addContact),
+  getSearchContacts: ctrlWrapper(getSearchContacts),
 };

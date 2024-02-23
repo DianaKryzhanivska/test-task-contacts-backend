@@ -8,6 +8,8 @@ const { addContactSchema } = require("../../schemas/contact");
 
 router.get("/mainpage", ctrl.getMainPage);
 
+router.get("/search", ctrl.getSearchContacts);
+
 router.get("/:id", ctrl.getContactById);
 
 router.delete("/:id", ctrl.deleteContactById);
