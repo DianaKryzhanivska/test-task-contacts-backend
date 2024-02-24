@@ -9,7 +9,7 @@ const contactSchema = new Schema(
       required: [true, "Set name for contact"],
     },
     phone: {
-      type: Number,
+      type: String,
       required: true,
     },
     email: {
@@ -23,7 +23,7 @@ contactSchema.post("save", handleMongooseError);
 
 const addContactSchema = Joi.object({
   name: Joi.string().required(),
-  phone: Joi.number().required(),
+  phone: Joi.string().required(),
   email: Joi.string().email(),
 });
 
