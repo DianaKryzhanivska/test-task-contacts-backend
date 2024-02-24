@@ -25,7 +25,6 @@ const deleteContactById = async (req, res) => {
 
 const updateContactById = async (req, res) => {
   const { id } = req.params;
-  console.log("Request body:", req.body);
   const result = await Contact.findByIdAndUpdate(id, req.body, {
     new: true,
   });
@@ -36,7 +35,6 @@ const updateContactById = async (req, res) => {
 };
 
 const addContact = async (req, res) => {
-  console.log("Request body:", req.body);
   const result = await Contact.create({ ...req.body });
   res.status(201).json(result);
 };
