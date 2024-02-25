@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 const handleMongooseError = require("../services/handleMongooseError");
 const Joi = require("joi");
 
-const phoneRegex = /^(?:\([0-9]{3}\))?[0-9]{3}[-. ]?[0-9]{4}$/;
+const phoneRegex = /^(\+\d{1,3}[- ]?)?\(?\d{3}\)?[- ]?\d{3}[- ]?\d{4}$/;
 
 const contactSchema = new Schema(
   {
