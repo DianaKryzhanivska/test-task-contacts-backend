@@ -4,7 +4,7 @@ const httpError = require("../services/httpError");
 
 const getMainPage = async (req, res) => {
   let filter = {};
-  const result = await Contact.find(filter);
+  const result = await Contact.find(filter).sort({ name: 1 });
   res.json(result);
 };
 
