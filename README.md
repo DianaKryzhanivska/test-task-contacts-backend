@@ -1,4 +1,4 @@
-# Drink Master Backend API
+# test-task-contacts Backend API
 
 Це репозиторій проекту test-task-contacts-backend, який надає API для взаємодії з додатком [test-task-contacts](https://github.com/DianaKryzhanivska/test-task-contacts).
 
